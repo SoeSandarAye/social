@@ -199,8 +199,8 @@
       </div>
       <br>
       
-      <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
-        <p>ADS</p>
+      <div class="w3-card w3-round w3-white w3-padding-16 w3-center" id="msg">
+        
       </div>
       <br>
       
@@ -217,4 +217,19 @@
 <!-- End Page Container -->
 </div>
 
+@endsection
+@section('script')
+
+<script type="text/javascript">
+  $(document).ready(function() {
+     activerefresh();
+  })
+
+  function activerefresh() {
+    setTimeout(function () {
+       $('#msg').load('{{route('showall')}}');          
+       comment_refresh();
+      },1000);
+  }
+</script>
 @endsection

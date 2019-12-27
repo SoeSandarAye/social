@@ -29,6 +29,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/home/all', 'HomeController@showall')->name('showall');
+
 Route::post('/user/logout', 'LoginuserController@logout')->name('logouts');
 
 Route::resource('/user','LoginuserController');

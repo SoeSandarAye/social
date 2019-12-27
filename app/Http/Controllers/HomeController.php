@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Activeuser;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -24,5 +26,23 @@ class HomeController extends Controller
     public function index()
     {
         return view('index');
+    }
+
+
+     public function showall()
+    {
+        $actives=Activeuser::all();
+        foreach ($actives as $active) {
+            $id=$active->userid;
+            $users = DB::table('users')->where('id',$id)->get();
+            foreach ($users as $user) {
+                //echo $user->name;
+                $data="<p>$user->name</p>";
+
+                echo $data;
+            }
+            
+        }
+   
     }
 }
