@@ -17,15 +17,18 @@ Route::get('/', function () {
 
 
 
-Route::middleware(['auth'])->group(function () {
-Route::get('/index',function(){
 
-	return view('index');
-});
 
-});
+
+Route::resource('active','ActiveController');
+
+
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/user/logout', 'LoginuserController@logout')->name('logouts');
+
+Route::resource('/user','LoginuserController');
