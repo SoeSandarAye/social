@@ -20,8 +20,6 @@ Route::get('/', function () {
 
 
 
-Route::resource('active','ActiveController');
-
 
 
 
@@ -34,3 +32,6 @@ Route::get('/home/all', 'HomeController@showall')->name('showall');
 Route::post('/user/logout', 'LoginuserController@logout')->name('logouts');
 
 Route::resource('/user','LoginuserController');
+
+Route::resource('/userregister','RegisterController');
+
